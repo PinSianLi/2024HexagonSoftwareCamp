@@ -1,0 +1,27 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./highlight.scss";
+@import "./_variables.scss";
+@import "./_partial/header.scss";
+@import "./_partial/footer.scss";
+@import "./_partial/product.scss";
+@import "./_partial/blog.scss";
+@import "./_partial/home.scss";
+@import "./_partial/service.scss";
+@import "./_partial/about.scss";
+@import "./package/swiper.scss";
+
+
+body * {
+    font-family: "Noto Sans", sans-serif;
+    list-style: none;
+    box-sizing: border-box;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+body,
+html {
+    background-color: nth($colors, 9);
+}

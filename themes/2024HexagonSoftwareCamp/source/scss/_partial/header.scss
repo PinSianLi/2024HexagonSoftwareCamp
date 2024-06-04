@@ -1,0 +1,161 @@
+#headerTag {
+    border-color: nth($colors, 7);
+    border-style: solid;
+    border-width: 0 0 1px 0;
+
+    >div {
+        >div {
+            min-height: 85px;
+        }
+    }
+
+    #logo {
+        margin: 0;
+
+        img {
+            width: 90px;
+        }
+
+        svg {
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+
+    #menu {
+        margin-top: 0;
+
+        ul {
+            margin: 0 nth($sizes-1, 4);
+            padding: 0;
+
+            li {
+                position: relative;
+                padding: nth($sizes-1, 1) nth($sizes-1, 2);
+                margin: nth($sizes-1, 4) nth($sizes-2, 2);
+                font-size: nth($sizes-1, 3);
+                text-align: center;
+
+                a {
+                    color: nth($colors, 1);
+                }
+
+                a::before,
+                a::after {
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-style: solid;
+                    border-color: nth($colors, 5);
+                    opacity: 0;
+                    transition: 0.5s;
+                }
+
+                a::before {
+                    left: 0;
+                    top: 0;
+                    border-width: 2px 0 0 2px;
+                }
+
+                a::after {
+                    right: 0;
+                    bottom: 0;
+                    border-width: 0 2px 2px 0;
+                }
+            }
+
+            li.action,
+            li:hover {
+                a {
+                    font-weight: bold;
+                }
+
+                a::before,
+                a::after {
+                    opacity: 1;
+                }
+            }
+
+            li.action::before,
+            li.action::after,
+            li::before,
+            li::after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-style: solid;
+                border-color: nth($colors, 5);
+                transition: 0.5s;
+                opacity: 1;
+            }
+
+            li::before,
+            li::after {
+                opacity: 0;
+            }
+
+            li.action::before,
+            li::before {
+                right: 0;
+                top: 0;
+                border-width: 2px 2px 0 0;
+            }
+
+            li.action::after,
+            li::after {
+                left: 0;
+                bottom: 0;
+                border-width: 0 0 2px 2px;
+            }
+
+            li:hover::before,
+            li:hover::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    @media (max-width:767px) {
+
+        #logo {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 22px 0;
+
+            svg {
+                display: block;
+                transition: 0.5s;
+            }
+
+            svg:hover {
+                background: black;
+
+                * {
+                    fill: white;
+                }
+            }
+        }
+
+        #menu {
+            height: 0px;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        #menu>ul {
+            flex-direction: column;
+        }
+
+        #menu.on {
+            height: 400px;
+        }
+    }
+}

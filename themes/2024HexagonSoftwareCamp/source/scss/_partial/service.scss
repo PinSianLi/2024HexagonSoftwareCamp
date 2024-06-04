@@ -1,0 +1,160 @@
+.service-flow {
+    background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/service-item-bg.png?raw=true);
+    background-size: cover;
+    padding: 120px 0;
+
+    ul {
+        padding: 0;
+    }
+
+    .section-title {
+        h2 {
+            color: nth($colors, 9);
+        }
+    }
+
+    .service-flow-list {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .service-flow-item {
+            display: flex;
+            align-items: center;
+            padding: nth($sizes-1, 4) nth($sizes-1, 5);
+            background-color: nth($colors, 3);
+            width: 655px;
+            border: 1px solid nth($colors, 5);
+            border-radius: nth($sizes-1, 1);
+        }
+
+        .service-flow-item:nth-child(even) {
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+        }
+
+        .service-flow-item-icon {
+            margin: nth($sizes-1, 5);
+            margin-left: 0;
+        }
+
+        .service-flow-item-titile {
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: nth($colors, 9);
+        }
+
+        .service-flow-item-desc {
+            font-size: nth($sizes-2, 2);
+            line-height: 1.5;
+            color: nth($colors, 6);
+        }
+    }
+
+    @media (max-width:991px) {
+        .service-flow-list {
+            .service-flow-item {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.service-price {
+    padding-bottom: 120px;
+
+    ul {
+        padding: 0;
+    }
+
+    .service-price-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-price-item {
+        display: flex;
+        align-items: center;
+        margin: 12px;
+        padding: nth($sizes-1, 5);
+        border-radius: nth($sizes-1, 2);
+        box-shadow: 0px nth($sizes-1, 1) nth($sizes-1, 2) 0px #00000014;
+
+        >svg {
+            margin: 0 nth($sizes-1 , 3);
+        }
+    }
+
+    .service-price-title {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: nth($colors, 4);
+    }
+
+    .service-price-number {
+        font-size: nth($sizes-1 , 5);
+        font-weight: 700;
+        line-height: 1.5;
+        color: nth($colors, 2);
+
+        span {
+            color: nth($colors, 4);
+            font-size: nth($sizes-1, 3);
+        }
+    }
+
+    @media (max-width:991px) {
+        .service-price-item {
+            margin: 12px 0;
+        }
+
+        .service-price-title,
+        .service-price-number {
+            font-size: nth($sizes-2, 2);
+        }
+    }
+}
+
+.service-qa {
+    padding-bottom: 120px;
+    .service-qa-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+
+        .service-qa-item {
+            margin: 12px;
+            padding: nth($sizes-1, 3);
+            border-radius: nth($sizes-1, 2);
+            border: 1px solid nth($colors, 6);
+            width: 530px;
+
+            h2 {
+                margin-bottom: nth($sizes-1, 3);
+                font-size: nth($sizes-1, 4);
+                font-weight: 700;
+                line-height: 1.2;
+                color: nth($colors, 3);
+            }
+
+            p {
+                margin: 0;
+                font-size: nth($sizes-2, 2);
+                line-height: 1.5;
+                color: nth($colors, 4);
+            }
+        }
+
+        @media (max-width:991px) {
+            .service-qa-item {
+                width: 100%;
+            }
+        }
+    }
+}

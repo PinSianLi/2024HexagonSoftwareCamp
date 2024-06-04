@@ -1,0 +1,389 @@
+$color2: #C1C1C1;
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .profile-info {
+        padding: 0;
+    }
+
+    .profile-text {
+        width: 460px;
+        padding-left: 16px;
+
+        h1 {
+            font-size: nth($sizes-2, 4);
+            color: nth($colors, 3);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: nth($sizes-1, 4);
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+            font-size: nth($sizes-2, 2);
+            color: nth($colors, 4);
+            line-height: 1.5;
+
+            .titleMark {
+                background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true");
+                background-repeat: no-repeat;
+                background-position-y: bottom;
+                white-space: nowrap;
+                background-size: 100%;
+            }
+        }
+
+        .profile-skill {
+            font-size: nth($sizes-1, 3);
+            color: $color2;
+        }
+
+        .social-icons {
+            margin-top: 60px;
+        }
+    }
+
+    .profile-image {
+        padding: 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .project-img-sm {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:991px) {
+    .profile {
+        display: block;
+
+        >div {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .profile-text {
+            width: 100%;
+            max-width: 442px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+
+            .project-img-sm {
+                display: block;
+                width: 100%;
+            }
+
+            .project-img-lg {
+                display: none;
+            }
+        }
+    }
+}
+
+.section-title {
+    margin-top: 120px;
+    margin-bottom: 80px;
+
+    h2 {
+        margin: 0;
+        font-size: nth($sizes-1, 5);
+        font-weight: 600;
+        color: nth($colors, 3);
+        line-height: 1.2;
+    }
+}
+
+.screen-mask {
+    background-color: rgba(#0D0C07, 0.5);
+}
+
+.screen-mask-2 {
+    opacity: 0;
+}
+
+.project {
+    .project-item {
+        position: relative;
+        width: 100%;
+        background-color: nth($colors, 9);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .project-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .project-img {
+        padding-top: 5rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .project-info {
+        background-color: rgba(nth($colors, 9), 0.1);
+        border-radius: nth($sizes-1 , 4);
+        padding: 0 nth($sizes-2 , 4);
+        padding-top: 80px;
+        padding-bottom: nth($sizes-2 , 4);
+
+        * {
+            color: nth($colors, 9);
+        }
+
+        >h1 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            margin-bottom: nth($sizes-1 , 2);
+        }
+
+        >p {
+            line-height: 1.5;
+            margin: 0;
+            margin-bottom: nth($sizes-1 , 2);
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            padding-bottom: nth($sizes-2 , 4);
+            margin-top: nth($sizes-1 , 2);
+            margin-bottom: nth($sizes-2 , 4);
+            border-bottom: 1px solid;
+
+            li {
+                color: nth($colors, 3);
+                padding: nth($sizes-1 , 1) 12px;
+                margin: 0 nth($sizes-1 , 2);
+                background-color: nth($colors, 9);
+                border-radius: nth($sizes-1 , 3);
+                white-space: nowrap;
+            }
+
+            li:first-child {
+                margin-left: 0;
+            }
+
+            li:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .project-button {
+            cursor: pointer;
+            text-align: center;
+            padding: nth($sizes-1 , 3) nth($sizes-1 , 5);
+            display: inline-block;
+            background-color: #000;
+            border-radius: 5px;
+            margin-bottom: nth($sizes-1 , 3);
+        }
+    }
+
+    @media (max-width:991px) {
+        .project-info {
+            text-align: center;
+            min-width: auto;
+            margin: 0;
+
+            >h1 {
+                color: nth($colors, 2);
+            }
+
+            >p {
+                color: nth($colors, 4);
+            }
+
+            ul {
+                justify-content: center;
+                flex-wrap: wrap;
+
+                li {
+                    color: nth($colors, 3);
+                    background-color: nth($colors, 7);
+                    white-space: nowrap;
+                }
+            }
+
+        }
+    }
+}
+
+.service {
+    background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-services-bg.png?raw=true);
+    padding: 120px 0;
+
+    .service-list {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        li {
+            width: 306px;
+            height: 306px;
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/service-item-bg.png?raw=true);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: nth($sizes-1, 3);
+            margin: 0 12px;
+
+            h2 {
+                color: nth($colors, 9);
+                font-size: 28px;
+                line-height: 1.5;
+                font-weight: 700;
+                margin: 0;
+                margin-top: 34px;
+            }
+        }
+
+        li:first-child {
+            margin-left: 0;
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .service-detail {
+        margin-top: 80px;
+        text-align: center;
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: nth($colors, 3);
+        }
+
+        .service-detail-button {
+            display: flex;
+            justify-content: center;
+            padding: nth($sizes-1 , 3) nth($sizes-1 , 5);
+            background-color: nth($colors, 1);
+            font-size: nth($sizes-2 , 2);
+            font-weight: 600;
+            line-height: 1.5;
+            color: nth($colors, 9);
+            margin-top: nth($sizes-2, 4);
+            border-radius: 5px;
+            cursor: pointer;
+
+            a {
+                color: nth($colors, 9);
+            }
+        }
+    }
+
+    @media (max-width:991px) {
+        .service-list {
+            flex-direction: column;
+            align-items: center;
+
+            li {
+                margin: 12px 0;
+            }
+        }
+    }
+}
+
+.selected-article {
+    padding-bottom: 100px;
+
+    * {
+        color: nth($colors, 3);
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    h3 {
+        font-size: nth($sizes-2, 2);
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .swiper-container {
+        width: 100%;
+        padding: 20px 0;
+        overflow: hidden;
+    }
+
+
+    .swiper-pagination {
+        position: relative;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        background: nth($colors, 6);
+        opacity: 0.7;
+        margin: 0 4px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: nth($colors, 1);
+        opacity: 1;
+    }
+
+    .selected-article-image {
+        margin-bottom: nth($sizes-1, 3);
+    }
+
+    .selected-article-image,
+    .selected-article-image a,
+    .selected-article-image img {
+        width: 100%;
+        border-radius: nth($sizes-1, 2);
+
+    }
+
+    .selected-article-post-title {
+        font-size: nth($sizes-2, 2);
+        padding: 0 nth($sizes-1, 2);
+        margin-bottom: nth($sizes-1, 3);
+        width: 100%;
+    }
+
+    .selected-article-post-bar {
+        width: 100%;
+        display: flex;
+        margin-top: nth($sizes-2, 2);
+        justify-content: space-between;
+    }
+
+    .selected-article-post-tag-list-item {
+        padding: nth($sizes-1, 1) 12px;
+        background-color: nth($colors, 7);
+        border-radius: nth($sizes-1, 3);
+    }
+
+}

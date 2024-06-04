@@ -1,0 +1,108 @@
+<% if(page.layout != "page"){ %>
+  <div class="container article-main">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-12 col-lg-9">
+        <article id="<%= post.layout %>-<%= post.slug %>" class="h-entry article article-type-<%= post.layout %>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <div class="article-meta">
+            <%- partial('post/category') %>
+            <div class="archive-article-date">
+              <a href="<%- url_for(post.path) %>">
+                <time class="dt-published" datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY/MM/D") %></time>
+                發布
+              </a>
+            </div>
+          </div>
+          <div class="article-inner">
+            <%- partial('post/gallery') %>
+            <% if (post.link || post.title){ %>
+              <header class="article-header">
+                <%- partial('post/title', {class_name: 'p-name article-title'}) %>
+              </header>
+            <% } %>
+            <div class="e-content article-entry" itemprop="articleBody">
+              <% if (post.excerpt && index){ %>
+                <%- post.excerpt %>
+                <% if (theme.excerpt_link){ %>
+                  <p class="article-more-link">
+                    <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+                  </p>
+                <% } %>
+              <% } else { %>
+                <%- post.content %>
+              <% } %>
+            </div>
+            
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-lg-3 sidebar-widget-box">
+        <% if (site.categories.length){ %>
+          <div class="sidebar-widget-wrap">
+            <div class="sidebar-widget">
+              <ul class="category-list">
+                  <li class="sidebar-widget-title"><a class="category-list-link on" href="<%= url_for('/archives') %>">全部文章</a></li>
+                <% site.categories.each(function(category){ %>
+                  <li class="category-list-item">
+                      <a class="category-list-link" href="<%= url_for(category.path) %>"><%= category.name %></a>
+                  </li>
+                <% }); %>
+              </ul>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <footer class="article-footer">
+          <% 
+          // 取得目前文章的第一個類別（或根據你的需求調整）
+          var currentCategories = post.categories.map(function(category) {
+            return category.name || category;
+          });
+
+          // 篩選出具有相同類別的其他文章
+          var relatedPosts = site.posts.filter(function(p) {
+            if (p._id === post._id) return false; // 排除目前文章本身
+            var categories = p.categories.map(function(category) {
+              return category.name || category;
+            });
+            return currentCategories.some(function(category) {
+              return categories.includes(category);
+            });
+          });
+          %>
+          <h2 class="article-footer-title">相關文章</h2>
+          <ul class="article-footer-post">
+            <% if (relatedPosts.length > 0) { %>
+                <% relatedPosts.forEach(function(postItem) { %>
+                  <li class="article-footer-item">
+                    <a href="<%- url_for(postItem.path) %>" class="archive-post-image-link">
+                      <img src="<%= postItem.img %>" alt="" class="article-footer-post-image">
+                    </a>
+                    <h3 class="article-footer-post-title"><a href="<%= postItem.url %>"><%= postItem.title %></a></h3>
+                    <ul class="article-footer-post-bar">
+                      <li class="article-footer-post-tagbox">
+                        <%- list_tags(postItem.categories, {
+                          show_count: false,
+                          class: 'article-footer-post-tag'
+                        }) %>
+                      </li>
+                      <li class="article-footer-post-date">
+                        <time class="dt-published" datetime="<%= date_xml(postItem.date) %>" itemprop="datePublished"><%= date(postItem.date, "YYYY/MM/D") %></time>
+                      </li>
+                    </ul>
+                  </li>
+                <% }); %>
+            <% }%>
+            
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </div>  
+<% } else{ %>
+  <%- post.content %>
+  <% } %>

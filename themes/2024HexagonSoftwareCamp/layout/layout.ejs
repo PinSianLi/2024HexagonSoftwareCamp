@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%- partial('_partial/head') %>
+
+  <body>
+    <div id="container">
+      <%- partial('_partial/header', {page}) %>
+
+        <div id="wrap">
+
+          <section id="main"><%- body %></section>
+          <%- partial('_partial/footer', null) %>
+        </div>
+        <%- partial('_partial/after-footer') %>
+    </div>
+    <%- js('js/swiper-bundle.min.js') %>
+    <%- js('js/app.js') %>
+  </body>
+
+</html>

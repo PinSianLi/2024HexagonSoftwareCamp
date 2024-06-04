@@ -1,0 +1,75 @@
+#footer {
+    padding: nth($sizes-2, 4) nth($sizes-1, 3);
+    min-height: 425px;
+    border-top: 1px solid nth($colors, 8);
+    background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .footerContact,
+    .footerLinkList {
+        margin: nth($sizes-2, 2) 0;
+    }
+
+    p,
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footerLogo,
+    .footerDetails {
+        margin: 0;
+        margin-bottom: nth($sizes-1, 4);
+    }
+
+    .footerLinkList {
+        li {
+            border: 1px solid #1C1C1C;
+            border-radius: nth($sizes-1, 2);
+            background-color: nth($colors, 9);
+            margin: 12px;
+            height: nth($sizes-1, 10);
+            width: 306px;
+            transition: 0.5s;
+            cursor: pointer;
+
+            svg {
+                fill: nth($colors, 4);
+                width: nth($sizes-1, 8);
+                height: nth($sizes-1, 8);
+
+                * {
+                    fill: nth($colors, 4);
+                }
+            }
+
+            span {
+                color: nth($colors, 4);
+                font-size: nth($sizes-2, 2);
+            }
+        }
+
+        li:hover {
+            border-color: nth($colors, 1);
+            background-color: nth($colors, 1);
+
+            svg {
+                fill: nth($colors, 9);
+
+                * {
+                    fill: nth($colors, 9);
+                }
+            }
+
+            span {
+                color: nth($colors, 9);
+            }
+        }
+    }
+
+    @media (max-width:767px) {
+        background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true");
+    }
+}
